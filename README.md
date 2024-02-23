@@ -12,7 +12,7 @@ igor86@igor86:~$ cat Human_friend\
 igor86@igor86:~$ cat -b Human_friend\
 igor86@igor86:~$ mv Human_friend "Друзья человека"\
 igor86@igor86:~$ cat "Друзья человека"\
-igor86@igor86:~$ ls\
+igor86@igor86:~$ ls
 
 P.S. В файле igor86@igor86 ~Animals.txt весь вывод команд в терминале Ubuntu
 
@@ -24,7 +24,7 @@ igor86@igor86:~$ sudo mv 'Друзья человека' /home/igor86/Animals\
 igor86@igor86:~$ cd Animals\
 igor86@igor86:~/Animals$ ls\
 igor86@igor86:~/Animals$ cat 'Друзья человека'\
-igor86@igor86:~/Animals$\
+igor86@igor86:~/Animals$
 
 P.S. В файле igor86@igor86 ~Animals.txt весь вывод команд в терминале Ubuntu
 
