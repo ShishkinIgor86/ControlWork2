@@ -14,7 +14,9 @@ igor86@igor86:~$ mv Human_friend "Друзья человека"\
 igor86@igor86:~$ cat "Друзья человека"\
 igor86@igor86:~$ ls\
 
-2. Создать директорию, переместить файл туда.\
+P.S. В файле igor86@igor86 ~Animals.txt весь вывод команд в терминале Ubuntu
+
+2. Создать директорию, переместить файл туда.
 
 igor86@igor86:~$ sudo mkdir Animals\
 igor86@igor86:~$ ls\
@@ -24,7 +26,9 @@ igor86@igor86:~/Animals$ ls\
 igor86@igor86:~/Animals$ cat 'Друзья человека'\
 igor86@igor86:~/Animals$\
 
-3. Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория.\
+P.S. В файле igor86@igor86 ~Animals.txt весь вывод команд в терминале Ubuntu
+
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория.
 
 igor86@igor86:~$ sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb\
 igor86@igor86:~$ sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb\
@@ -32,7 +36,9 @@ igor86@igor86:~$ sudo apt-get update\
 igor86@igor86:~$ sudo apt-get install mysql-server\
 igor86@igor86:~$ mysql --version\
 
-4. Установить и удалить deb-пакет с помощью dpkg.\
+P.S. В файле igor86@igor86 ~ MySQL.txt весь вывод команд в терминале Ubuntu
+
+4. Установить и удалить deb-пакет с помощью dpkg.
 
 // Install memtest86+_4.20-1.1ubuntu8_amd64.deb \
 
@@ -42,3 +48,5 @@ igor86@igor86:~$ sudo dpkg -i memtest86+_4.20-1.1ubuntu8_amd64.deb\
 //Uninstall memtest86+\
 
 igor86@igor86:~$ sudo dpkg -r memtest86+\
+
+P.S. В файле igor86@igor86 ~memtest86.txt весь вывод команд в терминале Ubuntu
