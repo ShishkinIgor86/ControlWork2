@@ -1,0 +1,62 @@
+// Install memtest86+_4.20-1.1ubuntu8_amd64.deb
+
+igor86@igor86:~$ wget http://archive.ubuntu.com/ubuntu/pool/main/m/memtest86+/memtest86+_4.20-1.1ubuntu8_amd64.deb
+--2024-02-23 10:45:08--  http://archive.ubuntu.com/ubuntu/pool/main/m/memtest86+/memtest86+_4.20-1.1ubuntu8_amd64.deb
+Resolving archive.ubuntu.com (archive.ubuntu.com)... 91.189.91.82, 91.189.91.83, 91.189.91.81, ...
+Connecting to archive.ubuntu.com (archive.ubuntu.com)|91.189.91.82|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 69756 (68K) [application/vnd.debian.binary-package]
+Saving to: ‘memtest86+_4.20-1.1ubuntu8_amd64.deb’
+
+memtest86+_4.20-1.1ubuntu8_amd64.deb          100%[================================================================================================>]  68.12K   195KB/s    in 0.3s
+
+2024-02-23 10:45:09 (195 KB/s) - ‘memtest86+_4.20-1.1ubuntu8_amd64.deb’ saved [69756/69756]
+
+igor86@igor86:~$ sudo dpkg -i memtest86+_4.20-1.1ubuntu8_amd64.deb
+Selecting previously unselected package memtest86+.
+(Reading database ... 66106 files and directories currently installed.)
+Preparing to unpack memtest86+_4.20-1.1ubuntu8_amd64.deb ...
+Unpacking memtest86+ (4.20-1.1ubuntu8) ...
+Setting up memtest86+ (4.20-1.1ubuntu8) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Sourcing file `/etc/default/grub'
+Generating grub configuration file ...
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3347: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3347: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3350: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3350: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3353: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3353: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3356: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3356: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3388: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3388: /usr/sbin/grub-probe
+Found linux image: /boot/vmlinuz-6.5.0-21-generic
+Found initrd image: /boot/initrd.img-6.5.0-21-generic
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3574: /usr/sbin/grub-probe
+File descriptor 3 (pipe:[34156]) leaked on vgs invocation. Parent PID 3574: /usr/sbin/grub-probe
+Found memtest86+ image: /memtest86+.elf
+Found memtest86+ image: /memtest86+.bin
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+
+//Uninstall memtest86+
+
+igor86@igor86:~$ sudo dpkg -r memtest86+
+(Reading database ... 66122 files and directories currently installed.)
+Removing memtest86+ (4.20-1.1ubuntu8) ...
+Sourcing file `/etc/default/grub'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-6.5.0-21-generic
+Found initrd image: /boot/initrd.img-6.5.0-21-generic
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+igor86@igor86:~$
