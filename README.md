@@ -54,3 +54,5 @@ P.S. В файле igor86@igor86 ~memtest86.txt весь вывод команд
 <image src="https://github.com/ShishkinIgor86/ControlWork2/blob/main/history.jpg" alt="History">
 
 ## 6. Нарисовать диаграмму, в которой есть класс родительский класс, домашние животные и вьючные животные, в составы которых в случае домашних животных войдут классы: собаки, кошки, хомяки, а в класс вьючные животные войдут: Лошади, верблюды и ослы).
+
+<image src="https://github.com/ShishkinIgor86/ControlWork2/blob/main/UML.jpg" alt="UML">
