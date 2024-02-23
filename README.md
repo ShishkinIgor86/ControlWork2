@@ -40,13 +40,13 @@ P.S. В файле igor86@igor86 ~ MySQL.txt весь вывод команд в
 
 4. Установить и удалить deb-пакет с помощью dpkg.
 
-// Install memtest86+_4.20-1.1ubuntu8_amd64.deb \
+// Install memtest86+_4.20-1.1ubuntu8_amd64.deb 
 
 igor86@igor86:~$ wget http://archive.ubuntu.com/ubuntu/pool/main/m/memtest86+/memtest86+_4.20-1.1ubuntu8_amd64.deb\
-igor86@igor86:~$ sudo dpkg -i memtest86+_4.20-1.1ubuntu8_amd64.deb\
+igor86@igor86:~$ sudo dpkg -i memtest86+_4.20-1.1ubuntu8_amd64.deb
 
-//Uninstall memtest86+\
+//Uninstall memtest86+
 
-igor86@igor86:~$ sudo dpkg -r memtest86+\
+igor86@igor86:~$ sudo dpkg -r memtest86+
 
 P.S. В файле igor86@igor86 ~memtest86.txt весь вывод команд в терминале Ubuntu
