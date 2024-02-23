@@ -61,3 +61,52 @@ P.S. В файле igor86@igor86 ~memtest86.txt весь вывод команд
 ```
  CREATE DATABASE Human_friends;
 ```
+## 8. Создать таблицы с иерархией из диаграммы в БД
+```
+USE Human_friends;
+
+CREATE TABLE animal (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE pets (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE packanimal (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE dog (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE cat (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE humster (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE horse (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE camel (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+
+CREATE TABLE donkey (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+             Name VARCHAR (30),
+             Command VARCHAR (30),
+             DateOfBirthday DATE);
+```
