@@ -45,4 +45,3 @@ igor86@igor86:~$ sudo dpkg -i memtest86+_4.20-1.1ubuntu8_amd64.deb
 //Uninstall memtest86+
 
 igor86@igor86:~$ sudo dpkg -r memtest86+
-
