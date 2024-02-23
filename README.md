@@ -34,7 +34,7 @@ igor86@igor86:~$ sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_a
 igor86@igor86:~$ sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb\
 igor86@igor86:~$ sudo apt-get update\
 igor86@igor86:~$ sudo apt-get install mysql-server\
-igor86@igor86:~$ mysql --version\
+igor86@igor86:~$ mysql --version
 
 P.S. В файле igor86@igor86 ~ MySQL.txt весь вывод команд в терминале Ubuntu
 
