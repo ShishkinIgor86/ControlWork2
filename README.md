@@ -51,5 +51,5 @@ P.S. В файле igor86@igor86 ~memtest86.txt весь вывод команд
 
 ## 5. Выложить историю команд в терминале ubuntu
 
-<image src="https://picsum.photos/800/600" alt="Описание картинки">
+<image src="https://github.com/ShishkinIgor86/ControlWork2/blob/main/history.jpg" alt="History">
 
