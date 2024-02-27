@@ -64,49 +64,178 @@ P.S. В файле igor86@igor86 ~memtest86.txt весь вывод команд
 ## 8. Создать таблицы с иерархией из диаграммы в БД
 ```
 USE Human_friends;
+CREATE TABLE animal
+(
+	id INT AUTO_INCREMENT PRIMARY KEY, 
+	type_of_animal VARCHAR(20)
+);
 
-CREATE TABLE animal (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+INSERT INTO animal (type_of_animal)
+VALUES ('pets'),
+('pack_animal');  
+   
+CREATE TABLE pets
+(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    type_name VARCHAR (20),
+    type_id INT,
+    FOREIGN KEY (type_id) REFERENCES animal (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
-CREATE TABLE pets (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+INSERT INTO pets (type_name, type_id)
+VALUES ('cat', 1),
+('dog', 1),  
+('hamster', 1); 
 
-CREATE TABLE packanimal (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+CREATE TABLE pack_animal
+(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    type_name VARCHAR (20),
+    type_id INT,
+    FOREIGN KEY (type_id) REFERENCES animal (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
-CREATE TABLE dog (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+INSERT INTO pack_animal (type_name, type_id)
+VALUES ('horse', 2),
+('donkey', 2),  
+('camel', 2);
 
-CREATE TABLE cat (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+```
+## 9. Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения
+```
+CREATE TABLE cat 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    nickname VARCHAR(20), 
+    date_of_birth DATE,
+    commands VARCHAR(50),
+    type_id int,
+    Foreign KEY (type_id) REFERENCES pets (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
-CREATE TABLE humster (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+INSERT INTO cat (nickname, date_of_birth, commands, type_id)
+VALUES ('Whiskers', '2019-05-15', 'Sit, Pounce', 1),
+('Smudge', '2020-02-20', 'Sit, Pounce, Scratch', 1),  
+('Oliver', '2020-06-30', 'Meow, Scratch, Jump', 1); 
 
-CREATE TABLE horse (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+CREATE TABLE dog 
+(       
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nickname VARCHAR(20), 
+    date_of_birth DATE,
+    commands VARCHAR(50),
+    type_id int,
+    Foreign KEY (type_id) REFERENCES pets (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO dog (nickname, date_of_birth, commands, type_id)
+VALUES ('Fido', '2020-01-01', 'Sit, Stay, Fetch', 2),
+('Buddy', '2018-12-10', 'Sit, Paw, Bark', 2),  
+('Bella', '2019-11-11', 'Sit, Stay, Roll', 2);
 
-CREATE TABLE camel (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+CREATE TABLE hamster
+(       
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nickname VARCHAR(20), 
+    date_of_birth DATE,
+    commands VARCHAR(50),
+    type_id int,
+    Foreign KEY (type_id) REFERENCES pets (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO hamster (nickname, date_of_birth, commands, type_id)
+VALUES ('Hammy', '2021-03-10', 'Roll, Hide', 3),
+('Peanut', '2021-08-01', 'Roll, Spin', 3);
 
-CREATE TABLE donkey (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-             Name VARCHAR (30),
-             Command VARCHAR (30),
-             DateOfBirthday DATE);
+CREATE TABLE horse 
+(       
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nickname VARCHAR(20), 
+    date_of_birth DATE,
+    commands VARCHAR(50),
+    type_id int,
+    Foreign KEY (type_id) REFERENCES pack_animal (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO horse (nickname, date_of_birth, commands, type_id)
+VALUES ('Thunder', '2015-07-21', 'Trot, Canter, Gallop', 1),
+('Storm', '2014-05-05', 'Trot, Canter', 1),  
+('Blaze', '2016-02-29', 'Trot, Jump, Gallop', 1);
+
+CREATE TABLE donkey
+(       
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nickname VARCHAR(20), 
+    date_of_birth DATE,
+    commands VARCHAR(50),
+    type_id int,
+    Foreign KEY (type_id) REFERENCES pack_animal (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO donkey (nickname, date_of_birth, commands, type_id)
+VALUES ('Eeyore', '2017-09-18', 'Walk, Carry Load, Bray', 2),
+('Burro', '2019-01-23', 'Walk, Bray, Kick', 2);
+
+CREATE TABLE camel 
+(       
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nickname VARCHAR(20), 
+    date_of_birth DATE,
+    commands VARCHAR(50),
+    type_id int,
+    Foreign KEY (type_id) REFERENCES pack_animal (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO camel (nickname, date_of_birth, commands, type_id)
+VALUES ('Sandy', '2016-11-03', 'Walk, Carry Load', 3),
+('Dune', '2018-12-12', 'Walk, Sit', 3),  
+('Sahara', '2015-08-14', 'Walk, Run', 3);
+
+```
+## 10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
+
+```
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM camel;
+
+SELECT nickname, date_of_birth, commands FROM horse
+UNION SELECT  nickname, date_of_birth, commands FROM donkey;
+
+```
+## 11.Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью до месяца подсчитать возраст животных в новой таблице
+```
+
+CREATE TEMPORARY TABLE animals AS 
+SELECT *, 'horse' as genus FROM horse
+UNION SELECT *, 'donkey' AS genus FROM donkey
+UNION SELECT *, 'dog' AS genus FROM dog
+UNION SELECT *, 'cat' AS genus FROM cat
+UNION SELECT *, 'hamster' AS genus FROM hamster;
+
+CREATE TABLE younganimals (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY)
+SELECT nickname, date_of_birth, commands,
+        Round((year(current_date()) - year(date_of_birth)) + (month(current_date() - month(date_of_birth)))/10, 2) as age
+FROM animals
+WHERE Round((year(current_date()) - year(date_of_birth)) + (month(current_date() - month(date_of_birth)))/10, 2) > 1 
+	     AND Round((year(current_date()) - year(date_of_birth)) + (month(current_date() - month(date_of_birth)))/10, 2) < 3;
+SELECT * FROM younganimals;
+
+```
+
+## 12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на прошлую принадлежность к старым таблицам.
+```
+CREATE TABLE newhumanFriend (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY)
+SELECT  nickname, date_of_birth, commands, 
+        'cat' AS oldTable
+FROM cat UNION 
+SELECT nickname, date_of_birth, commands,
+        'dog' AS oldTable
+FROM dog UNION
+SELECT  nickname, date_of_birth, commands,
+        'hamster' AS oldTable
+FROM hamster UNION 
+SELECT  nickname, date_of_birth, commands,
+        'horse' AS oldTable
+FROM horse UNION 
+SELECT  nickname, date_of_birth, commands,
+        'donkey' AS oldTable
+FROM donkey;
+
+SELECT * FROM newhumanFriend;
+
 ```
