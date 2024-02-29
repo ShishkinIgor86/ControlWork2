@@ -241,4 +241,4 @@ SELECT * FROM newhumanFriend;
 ```
 ## 13.Создать класс с Инкапсуляцией методов и наследованием по диаграмме.
 
-<src/main/java/org/example/model>
+[Модель](src/main/java/org/example/model)
